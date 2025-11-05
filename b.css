@@ -1,0 +1,13 @@
+body {
+    background: #000;
+}
+
+@font-face {
+    font-family: 'Gothic';
+    src: url('gothic.ttf') format('truetype');
+}
+
+h1 {
+	font-family: "Gothic";
+	color: #fff;
+}
