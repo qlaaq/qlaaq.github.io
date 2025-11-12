@@ -19,6 +19,22 @@ body {
 	border-radius: 0px 0px 20px 20px;
 }
 
+.container {
+	dsplay: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.item {
+	background: #000;
+	color: #fff;
+	border-radius: 20px 20px 10px 10px;
+	height: 300px;
+}
+
+.item hr {
+	color: #fff;
+}
+
 .gothic {
 	font-family: "Gothic";
 	color: #fff;
