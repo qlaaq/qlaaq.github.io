@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 	<chanel>
 		<title>MY FEED</title>
-		<link>https://qlaaq.github.io/feed.xml</link>
+		<link>feed://view?url=https://qlaaq.github.io/feed.xml</link>
 		<description>DESCR</description>
 		<lastBuildDate>Mon, 01 Dec 2025 22:40:00 +0300</lastBuildDate>
 
