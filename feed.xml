@@ -1,25 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-	<chanel>
-		<title>MY FEED</title>
-		<link>feed://view?url=https://qlaaq.github.io/feed.xml</link>
-		<description>DESCR</description>
-		<lastBuildDate>Mon, 01 Dec 2025 22:40:00 +0300</lastBuildDate>
+  <channel>
+    <title>Название вашего проекта</title>
+    <link>https://ваш-сайт.ru</link>
+    <description>Краткое описание вашего контента.</description>
+    <language>ru-RU</language>
+    <lastBuildDate>Mon, 01 Dec 2025 22:00:00 +0300</lastBuildDate>
+    <ttl>60</ttl>
 
-		<item>
-			<title>1st note</title>
-			<guid>https://qlaaq.github.io/feed.xml#feed-1</guid>
-			<pubDate>Mon, 01 Dec 2025 21:00:00 +0300</pubDate>
-			<description>DESCR-1</description>
-			<content:encoded>
-				<![CDATA[
-					<h1>First note</h1>
-					<p>POPA DOPA PUPA LUPA RUPA ZUPA IOPA ZOPA</p>
-					<p><em>END OF NOTE</em></p>
-					<blockquote>CITATA</blockquote>
-					<p><strong>WARNING!!!</strong></p>
-				]]>
-			</content:encoded>
-		</item>
-	</chanel>
+
+    <!-- Статья 1 -->
+    <item>
+      <title>Первая статья</title>
+      <link>https://ваш-сайт.ru/article1</link>
+      <guid>https://ваш-сайт.ru/feed.xml#article1</guid>
+      <pubDate>Mon, 01 Dec 2025 21:00:00 +0300</pubDate>
+      <description>Краткий анонс первой статьи.</description>
+      <content:encoded>
+        <![CDATA[
+          <h2>Первая статья</h2>
+          <p>Полный текст с HTML‑разметкой:</p>
+          <ul>
+            <li>Пункт списка.</li>
+            <li>Ещё пункт.</li>
+          </ul>
+        ]]>
+      </content:encoded>
+    </item>
+
+    <!-- Статья 2 -->
+    <item>
+      <title>Вторая статья</title>
+      <link>https://ваш-сайт.ru/article2</link>
+      <guid>https://ваш-сайт.ru/feed.xml#article2</guid>
+      <pubDate>Mon, 01 Dec 2025 21:30:00 +0300</pubDate>
+      <description>Анонс второй статьи.</description>
+      <content:encoded>
+        <![CDATA[
+          <h2>Вторая статья</h2>
+          <p>Текст с HTML:</p>
+          <blockquote>Цитата.</blockquote>
+        ]]>
+      </content:encoded>
+    </item>
+  </channel>
 </rss>
