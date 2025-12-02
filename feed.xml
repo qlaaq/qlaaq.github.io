@@ -1,1 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Мой проект</title>
+	    <link>https://ваш-домен.github.io</link>
+	    <description>Описание</description>
+	    <language>ru-RU</language>
+	    <lastBuildDate>Mon, 01 Dec 2025 23:59:00 +0300</lastBuildDate>
+	
+	    <item>
+	      <title>П-1</title>
+	      <link>https://qlaaq.github.io/p-1.xml</link>
+	      <guid>https://qlaaq.github.io/feed.xml#post1</guid>
+	      <pubDate>Mon, 01 Dec 2025 23:00:00 +0300</pubDate>
+	      <description>QND</description>
+	    </item>
+	</channel>
+</rss>
