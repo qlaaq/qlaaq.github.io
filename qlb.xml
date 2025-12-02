@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Мой проект</title>
+	    <link>https://ваш-домен.github.io</link>
+	    <description>Описание</description>
+	    <language>ru-RU</language>
+	    <lastBuildDate>Mon, 01 Dec 2025 23:59:00 +0300</lastBuildDate>
+		<item>
+	      <title>TO Ql-A</title>
+	      <link>https://qlaaq.github.io/qla.xml</link>
+	      <guid>https://qlaaq.github.io/qlb.xml#post1</guid>
+	    </item>
+	</channel>
+</rss>
