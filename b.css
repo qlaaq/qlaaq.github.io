@@ -1,4 +1,4 @@
-/* Уточнённый b.css — см. пояснения в чате */
+/* Уточнённый b.css — см. пояснения в чате 
 *,
 *::before,
 *::after {
@@ -20,7 +20,7 @@
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* Если используете локальный шрифт — положите gothic.ttf в корень или assets/fonts/ и поправьте путь */
+/* Если используете локальный шрифт — положите gothic.ttf в корень или assets/fonts/ и поправьте путь 
 @font-face {
   font-family: 'Gothic';
   src: url('/gothic.ttf') format('truetype');
@@ -39,7 +39,7 @@ html, body {
   line-height: 1.45;
 }
 
-/* Header */
+/* Header 
 .header {
   width: 100%;
   height: 64px;
@@ -60,7 +60,7 @@ html, body {
   text-align: center;
 }
 
-/* Контейнер */
+/* Контейнер 
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -70,7 +70,7 @@ html, body {
   padding: 0 18px;
 }
 
-/* Карточки */
+/* Карточки 
 .item {
   background: #ffffff;
   color: var(--text);
@@ -115,7 +115,7 @@ html, body {
   font-size: 1.5rem;
 }
 
-/* Адаптив */
+/* Адаптив 
 @media (max-width: 520px) {
   .header { height: 56px; }
   .header .gothic { font-size: 1.15rem; }
@@ -123,7 +123,7 @@ html, body {
 }
 
 /* Тёмная тема */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --bg: #07090b;
     --text: #e6eef6;
@@ -143,4 +143,240 @@ html, body {
   .item hr {
     background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.06));
   }
+} */
+
+/* b.css — fieldset-based layout
+   - fieldset + legend используются как блоки: шапка и карточки
+   - отзывчивая сетка, тёмная тема, аккуратные легенды
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --bg: #ffffff;
+  --text: #0b0f14;
+  --muted: #6b7280;
+  --accent: #1e90ff;
+  --card-shadow: rgba(2,6,23,0.06);
+  --radius-lg: 14px;
+  --gap: 16px;
+  --max-width: 1100px;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Локальный шрифт (если есть) */
+@font-face {
+  font-family: 'Gothic';
+  src: url('/gothic.ttf') format('truetype');
+  font-display: swap;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+}
+
+/* Общие стили для fieldset: аккуратный фон и скругления */
+fieldset {
+  border: 1px solid rgba(11,15,20,0.06);
+  border-radius: 12px;
+  padding: 12px 14px 18px;
+  background: rgba(255,255,255,0.98);
+  box-shadow: 0 8px 24px rgba(11,15,20,0.04);
+}
+
+/* Сброс дефолтного отступа у legend и стилизация */
+legend {
+  display: block;
+  padding: 0 8px;
+  margin-left: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* Header-fieldset: позиционируем, делаем его визуально шапкой */
+.header {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 16px auto 8px;
+  height: 64px;
+  border-radius: 0 0 18px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 56px; /* место для бургер-кнопки слева */
+  background: linear-gradient(180deg, #0b1220, #071021);
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.12);
+}
+
+/* legend в шапке — крупнее и центрировано */
+.header > legend {
+  font-family: "Gothic", var(--font-sans);
+  font-size: 1.4rem;
+  color: #fff;
+  margin: 0;
+  padding: 0 6px;
+  pointer-events: none;
+}
+
+/* Бургер слева */
+.burger {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background .18s ease;
+  z-index: 1300;
+}
+.burger:focus { outline: 2px solid rgba(255,255,255,0.14); }
+.burger:hover { background: rgba(255,255,255,0.03); }
+
+/* Иконка бургер->крест */
+.burger .bar {
+  transition: transform .22s ease, opacity .18s ease;
+}
+.burger.open .bar.top {
+  transform: translateY(6px) rotate(45deg);
+}
+.burger.open .bar.mid {
+  opacity: 0;
+}
+.burger.open .bar.bot {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Навигация (панель) — выезжающая на мобилке */
+.nav-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: min(320px, 85%);
+  max-width: 340px;
+  background: linear-gradient(180deg, rgba(11,15,20,0.98), rgba(7,9,12,0.98));
+  transform: translateX(110%);
+  transition: transform .28s cubic-bezier(.2,.9,.2,1);
+  box-shadow: -18px 32px 60px rgba(0,0,0,0.45);
+  z-index: 1200;
+  padding: 64px 18px 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.nav-panel.open { transform: translateX(0); }
+
+/* Оверлей для закрытия */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3,6,9,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+  z-index: 1100;
+}
+.nav-overlay.visible { opacity: 1; pointer-events: auto; }
+
+/* Сетка карточек */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--gap);
+  max-width: var(--max-width);
+  margin: 22px auto;
+  padding: 0 18px;
+}
+
+/* item как fieldset — внутренности уже естественны */
+.item {
+  min-height: 180px;
+  padding: 12px 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(11,15,20,0.08);
+}
+.item legend {
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+/* Текст */
+.item p {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+/* Адаптив */
+@media (max-width: 520px) {
+  .header { height: 56px; padding: 0 48px; }
+  .header > legend { font-size: 1.05rem; }
+  .item { padding: 10px; min-height: 150px; }
+}
+
+/* Десктоп: навигация как строка справа */
+@media (min-width: 900px) {
+  .burger { display: none; }
+  .nav-overlay { display: none; }
+  .nav-panel {
+    position: static;
+    transform: none;
+    height: auto;
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+  }
+  .nav-list { display: flex; gap: 18px; }
+  .nav-list a { color: #fff; padding: 6px 8px; }
+}
+
+/* Тёмная тема */
+@media (prefers-color-scheme: dark) {
+  :root{
+    --bg: #07090b;
+    --text: #e6eef6;
+    --muted: #9aa6b2;
+    --accent: #58a6ff;
+    --card-shadow: rgba(0,0,0,0.6);
+  }
+  body { background: linear-gradient(180deg,#030406,#091018); }
+  fieldset {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-color: rgba(255,255,255,0.04);
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  }
+  .header { background: linear-gradient(180deg, #06101a, #04101a); }
+  .header > legend { color: #fff; }
+  .nav-list a { color: #e6eef6; }
 }
