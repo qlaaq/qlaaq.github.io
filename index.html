@@ -1,4 +1,4 @@
-<html>
+<!--html>
 	<head>
 		<script src="a.js"></script>
 		<link rel="stylesheet" href="https://qlaaq.github.io/b.css"/>
@@ -61,4 +61,59 @@
 			</div>
 		</div>
 	</body>
+</html-->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- шаблонизатор -->
+  <script src="a.js" defer></script>
+  <!-- контроллер меню -->
+  <script src="menu.js" defer></script>
+  <link rel="stylesheet" href="b.css" />
+  <title>Rus Hate Cult</title>
+</head>
+<body>
+  <!-- Header как fieldset -->
+  <fieldset ."header" aria-label="Шапка сайта">
+    <legend ."gothic" al"center">Rus Hate Cult</legend>
+
+    <!-- Кнопка-бургер -->
+    <button class="burger" aria-controls="nav-panel" aria-expanded="false" aria-label="Открыть меню">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path class="bar top" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="bar mid" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="bar bot" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <nav id="nav-panel" class="nav-panel" aria-hidden="true">
+      <ul class="nav-list">
+        <li><a href="/">Главная</a></li>
+        <li><a href="/about.html">Обо мне</a></li>
+        <li><a href="/feed">Фид</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-overlay" data-hidden="true" tabindex="-1"></div>
+  </fieldset>
+
+  <!-- Контент: контейнер карточек в стиле fieldset -->
+  <section ."container" role="main" aria-label="Контент">
+    <fieldset ."item">
+      <legend>HELLO!</legend>
+      <div>
+        <p>Hello! Это пример контента в карточке, оформленной как fieldset.</p>
+      </div>
+    </fieldset>
+
+    <fieldset ."item">
+      <legend>SECOND</legend>
+      <div>
+        <p>Ещё одна карточка — удобно группировать заголовок в legend.</p>
+      </div>
+    </fieldset>
+  </section>
+</body>
 </html>
