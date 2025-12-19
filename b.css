@@ -1,4 +1,4 @@
-/* Уточнённый b.css — см. пояснения в чате 
+/* Уточнённый b.css — см пояснения в чате 
 *,
 *::before,
 *::after {
@@ -150,7 +150,7 @@ html, body {
    - отзывчивая сетка, тёмная тема, аккуратные легенды
 */
 
-*,
+/*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -170,7 +170,7 @@ html, body {
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* Локальный шрифт (если есть) */
+/* Локальный шрифт (если есть) 
 @font-face {
   font-family: 'Gothic';
   src: url('/gothic.ttf') format('truetype');
@@ -187,7 +187,7 @@ html, body {
   line-height: 1.45;
 }
 
-/* Общие стили для fieldset: аккуратный фон и скругления */
+/* Общие стили для fieldset: аккуратный фон и скругления 
 fieldset {
   border: 1px solid rgba(11,15,20,0.06);
   border-radius: 12px;
@@ -196,7 +196,7 @@ fieldset {
   box-shadow: 0 8px 24px rgba(11,15,20,0.04);
 }
 
-/* Сброс дефолтного отступа у legend и стилизация */
+/* Сброс дефолтного отступа у legend и стилизация 
 legend {
   display: block;
   padding: 0 8px;
@@ -206,7 +206,7 @@ legend {
   color: var(--text);
 }
 
-/* Header-fieldset: позиционируем, делаем его визуально шапкой */
+/* Header-fieldset: позиционируем, делаем его визуально шапкой 
 .header {
   position: relative;
   width: 100%;
@@ -217,13 +217,13 @@ legend {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 56px; /* место для бургер-кнопки слева */
+  padding: 0 56px; /* место для бургер-кнопки слева 
   background: linear-gradient(180deg, #0b1220, #071021);
   color: #fff;
   box-shadow: 0 8px 30px rgba(2,6,23,0.12);
 }
 
-/* legend в шапке — крупнее и центрировано */
+/* legend в шапке — крупнее и центрировано 
 .header > legend {
   font-family: "Gothic", var(--font-sans);
   font-size: 1.4rem;
@@ -233,7 +233,7 @@ legend {
   pointer-events: none;
 }
 
-/* Бургер слева */
+/* Бургер слева 
 .burger {
   position: absolute;
   left: 12px;
@@ -255,7 +255,7 @@ legend {
 .burger:focus { outline: 2px solid rgba(255,255,255,0.14); }
 .burger:hover { background: rgba(255,255,255,0.03); }
 
-/* Иконка бургер->крест */
+/* Иконка бургер->крест 
 .burger .bar {
   transition: transform .22s ease, opacity .18s ease;
 }
@@ -269,7 +269,7 @@ legend {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Навигация (панель) — выезжающая на мобилке */
+/* Навигация (панель) — выезжающая на мобилке 
 .nav-panel {
   position: fixed;
   right: 0;
@@ -289,7 +289,7 @@ legend {
 }
 .nav-panel.open { transform: translateX(0); }
 
-/* Оверлей для закрытия */
+/* Оверлей для закрытия 
 .nav-overlay {
   position: fixed;
   inset: 0;
@@ -301,7 +301,7 @@ legend {
 }
 .nav-overlay.visible { opacity: 1; pointer-events: auto; }
 
-/* Сетка карточек */
+/* Сетка карточек 
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -311,7 +311,7 @@ legend {
   padding: 0 18px;
 }
 
-/* item как fieldset — внутренности уже естественны */
+/* item как fieldset — внутренности уже естественны 
 .item {
   min-height: 180px;
   padding: 12px 14px 18px;
@@ -329,20 +329,20 @@ legend {
   color: var(--text);
 }
 
-/* Текст */
+/* Текст 
 .item p {
   color: var(--muted);
   font-size: 0.98rem;
 }
 
-/* Адаптив */
+/* Адаптив 
 @media (max-width: 520px) {
   .header { height: 56px; padding: 0 48px; }
   .header > legend { font-size: 1.05rem; }
   .item { padding: 10px; min-height: 150px; }
 }
 
-/* Десктоп: навигация как строка справа */
+/* Десктоп: навигация как строка справа 
 @media (min-width: 900px) {
   .burger { display: none; }
   .nav-overlay { display: none; }
@@ -362,7 +362,7 @@ legend {
 }
 
 /* Тёмная тема */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root{
     --bg: #07090b;
     --text: #e6eef6;
@@ -379,4 +379,127 @@ legend {
   .header { background: linear-gradient(180deg, #06101a, #04101a); }
   .header > legend { color: #fff; }
   .nav-list a { color: #e6eef6; }
+} */
+
+
+:root {
+  /* Светлая тема по умолчанию: белый фон, тёмные акценты */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #0b0f14;    /* основной текст (тёмный) */
+  --muted: #6b7280;
+  --accent: #0b0f14;  /* акцент (ссылки, легенды, бордеры) */
+  --radius: 10px;
+  --gap: 16px;
+}
+
+/* Принудительный режим (если добавить класс на <html>) */
+html.dark {
+  --bg: #000000;
+  --surface: #000000;
+  --text: #ffffff;
+  --muted: #c7ced8;
+  --accent: #ffffff;
+}
+html.light {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #0b0f14;
+  --muted: #6b7280;
+  --accent: #0b0f14;
+}
+
+/* Система: если ОС/браузер в dark mode — автоматически переключим переменные */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --surface: #000000;
+    --text: #ffffff;
+    --muted: #c7ced8;
+    --accent: #ffffff;
+  }
+}
+
+/* Базовые правила */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+}
+
+/* Ссылка/акцент */
+a, .accent {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent; /* фон страницы управляется body */
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 8%, transparent); /* лёгкий акцентный разделитель */
+}
+
+/* Legend (заголовки fieldset) — делаем акцентом */
+legend {
+  color: var(--accent);
+  font-weight: 700;
+  padding: 0 6px;
+}
+
+/* Fieldset как карточка */
+fieldset {
+  background: color-mix(in srgb, var(--surface) 100%, transparent 0%); /* чистая поверхность */
+  border: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
+  border-radius: var(--radius);
+  padding: 12px 14px 18px;
+  margin: 8px;
+}
+
+/* Сетка карточек — адаптивно */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--gap);
+  max-width: 1100px;
+  margin: 18px auto;
+  padding: 0 14px;
+}
+
+/* Карточка контента */
+.item {
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+/* Нейтральные мелкие стили */
+.item p { color: var(--muted); font-size: 0.98rem; }
+.item h3 { color: var(--text); margin-left: 4px; }
+
+/* Бургер-иконка — используем currentColor, чтобы подхватывала тему */
+.burger { color: var(--accent); background: transparent; border: none; cursor: pointer; }
+
+/* Простая адаптивка */
+@media (max-width: 520px) {
+  .header { padding: 10px 12px; }
+  .container { gap: 12px; }
 }
