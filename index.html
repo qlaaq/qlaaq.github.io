@@ -1,119 +1,103 @@
-<!--html>
-	<head>
-		<script src="a.js"></script>
-		<link rel="stylesheet" href="https://qlaaq.github.io/b.css"/>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
-	<body>
-		<div ."header">
-			<h1 ."gothic" al"center">Rus Hate Cult</h1>
-		</div>
-		<div ."container">
-			<div ."item">
-				<div ."">
-					<h3 style="margin-left: 10px">HELLO!</h3>
-				</div>
-				<hr />
-				<div ."">
-					<p>Hello!</p>
-				</div>
-			</div>
-			<div ."item">
-				<h3 style="margin-left: 10px">HELLO!</h3>
-				<hr />
-				<p>Hello!</p>
-			</div>
-			<div ."item">
-				<h3 style="margin-left: 10px">HELLO!</h3>
-				<hr />
-				<p>Hello!</p>
-			</div>
-			<div ."item">
-				<h3 style="margin-left: 10px">HELLO!</h3>
-				<hr />
-				<p>Hello!</p>
-			</div>
-			<div ."item">
-				<h3 style="margin-left: 10px">HELLO!</h3>
-				<hr />
-				<p>Hello!</p>
-			</div>
-			<div ."item">
-				<h3 style="margin-left: 10px">HELLO!</h3>
-				<hr />
-				<p>Hello!</p>
-			</div>
-			<div ."item">
-				<h3 style="margin-left: 10px">HELLO!</h3>
-				<hr />
-				<p>Hello!</p>
-			</div>
-			<div ."item">
-				<h3 style="margin-left: 10px">HELLO!</h3>
-				<hr />
-				<p>Hello!</p>
-			</div>
-			<div ."item">
-				<h3 style="margin-left: 10px">HELLO!</h3>
-				<hr />
-				<p>Hello!</p>
-			</div>
-		</div>
-	</body>
-</html-->
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- шаблонизатор -->
-  <script src="a.js" defer></script>
-  <!-- контроллер меню -->
-  <script src="menu.js" defer></script>
-  <link rel="stylesheet" href="b.css" />
-  <title>Rus Hate Cult</title>
-</head>
-<body>
-  <!-- Header как fieldset -->
-  <fieldset ."header" aria-label="Шапка сайта">
-    <legend ."gothic" al"center">Rus Hate Cult</legend>
-
-    <!-- Кнопка-бургер -->
-    <button class="burger" aria-controls="nav-panel" aria-expanded="false" aria-label="Открыть меню">
-      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path class="bar top" d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path class="bar mid" d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path class="bar bot" d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-
-    <nav id="nav-panel" class="nav-panel" aria-hidden="true">
-      <ul class="nav-list">
-        <li><a href="/">Главная</a></li>
-        <li><a href="/about.html">Обо мне</a></li>
-        <li><a href="/feed">Фид</a></li>
-      </ul>
-    </nav>
-
-    <div class="nav-overlay" data-hidden="true" tabindex="-1"></div>
-  </fieldset>
-
-  <!-- Контент: контейнер карточек в стиле fieldset -->
-  <section ."container" role="main" aria-label="Контент">
-    <fieldset ."item">
-      <legend>HELLO!</legend>
-      <div>
-        <p>Hello! Это пример контента в карточке, оформленной как fieldset.</p>
-      </div>
-    </fieldset>
-
-    <fieldset ."item">
-      <legend>SECOND</legend>
-      <div>
-        <p>Ещё одна карточка — удобно группировать заголовок в legend.</p>
-      </div>
-    </fieldset>
-  </section>
-</body>
+<!DOCTYPE html>
+<html data-theme="soft-green">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8" />
+        <style id="theme">
+            :root {
+                --bg: #ffffff;
+                --fg: #000000;
+            }
+            
+            [data-theme="dark"] {
+                --bg: #000000;
+                --fg: #ffffff;
+            }
+            
+            [data-theme="soft-green"] {
+                --bg: #225555;
+                --fg: #ffffff;
+            }
+        </style>
+        <style>
+            body {
+                background: var(--bg);
+            }
+            
+            .header {
+                --width: 10px;
+                --height: 10px;
+                --click: none;
+                --lfg: #00000000;
+                
+                padding: 0;
+                transition: 300ms;
+                background: var(--bg);
+                color: var(--lfg);
+                padding: 10px;
+                border: 1px solid var(--fg);
+                border-radius: 10px;
+                margin-bottom: 10px;
+                position: fixed;
+                left: calc(100% - 30px - var(--width) - 2px);
+                z-index: 999;
+                width: var(--width);
+                height: var(--height);
+                
+                .not-clickable {
+                    padding: 0;
+                    margin: 0;
+                    pointer-events: var(--click);
+                    outline: 1px solid #f00;
+                    /*opacity: var(--opacity);*/
+                    
+                    h1 {
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+                
+                &:hover {
+                    --width: calc(100% - 42px);
+                    --height: 100px;
+                    --click: auto;
+                    --lfg: var(--fg);
+                }
+            }
+            
+            .item {
+                color: var(--fg);
+                padding: 10px;
+                border: 1px solid var(--fg);
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .item .item-header {
+                color: var(--fg);
+                margin: 0;
+                font-size: 24px;
+                border-radius: 10px 10px 0px 0px;
+                border-top: 1px solid var(--fg);
+                padding: 0px 10px 0px 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="not-clickable">
+                <h1>NUUUUU</h1>
+            </div>
+        </div>
+        <fieldset class="item">
+            <legend class="item-header">Про НС и всякое всякое</legend>
+            <p>В первую очередь НС - это национал-социализм, а не нацизм, так как термин "нацизм" имеет негативный окрас, которого надо избегать, дабы не было казусов с тем, что тебя за твои слова избивает толпа разъяренных скинхедов с аварийными молотками, перцовками и телескопическими дубинками, чего ты навряд ли хочешь, поэтому молчи, сука.</p>
+            <p>Изучая национал-социализм ты видишь много противоречий в реторике и реальных фактах, что действительно так, однако ныне суть НС не в том, что мы круче, а в отношении унтерменшей к нам, как к этнической или национальной группе, поэтому м к ним относимся зеркально, и не надо удевляться тому, что кто-то тебя не понимает, это просто ебаные либералы, коммуняки и прочие неприятне индивиды, которые мешают освобождению белого народа от гнета евреев, чурок и негров, поэтому мы хорошие, а они - гандоны, у нас правильная идеология, а ты просто мамкин анархист - антифашист, и ладно если б ты был нормальным анархистом, но нет, ты еще одеваешься во всякое говно и выглядишь, как бомж, который просто не умеет одеваться правильно и называет себя панком-анархистом-антифашистом, от чего ты решил, что НС - это обязательно плохо? Мы защищаем тебя и твою Наташку от произвола мигрантов, которых ты так любишь, ебаный пидорас и педофис сука блять нахуй</p>
+        </fieldset>
+        <fieldset class="item">
+            <legend class="item-header">Про НС</legend>
+            <p>В первую очередь НС - это национал-социализм, а не нацизм, так как термин "нацизм" имеет негативный окрас, которого надо избегать, дабы не было казусов с тем, что тебя за твои слова избивает толпа разъяренных скинхедов с аварийными молотками, перцовками и телескопическими дубинками, чего ты навряд ли хочешь, поэтому молчи, сука.</p>
+            <p>Изучая национал-социализм ты видишь много противоречий в реторике и реальных фактах, что действительно так, однако ныне суть НС не в том, что мы круче, а в отношении унтерменшей к нам, как к этнической или национальной группе, поэтому м к ним относимся зеркально, и не надо удевляться тому, что кто-то тебя не понимает, это просто ебаные либералы, коммуняки и прочие неприятне индивиды, которые мешают освобождению белого народа от гнета евреев, чурок и негров, поэтому мы хорошие, а они - гандоны, у нас правильная идеология, а ты просто мамкин анархист - антифашист, и ладно если б ты был нормальным анархистом, но нет, ты еще одеваешься во всякое говно и выглядишь, как бомж, который просто не умеет одеваться правильно и называет себя панком-анархистом-антифашистом, от чего ты решил, что НС - это обязательно плохо? Мы защищаем тебя и твою Наташку от произвола мигрантов, которых ты так любишь, ебаный пидорас и педофис сука блять нахуй</p>
+        </fieldset>
+    </body>
 </html>
